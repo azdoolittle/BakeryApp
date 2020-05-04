@@ -1,21 +1,24 @@
+import javax.lang.model.util.Types;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 
-public class Bakery {
+class Bakery {
     //Each baked good has a name, price, an expiration date,
     // one or more diet restrictions (ie. gluten allergies), and quantity in stock.
     private String name;
     private double price;
     java.util.Date expirationDate;
-    private String []restriction;
+//    private String []restriction;
+    public ArrayList<String> restrictions;
     private int quantityInStock;
 
     public Bakery(String name, double price, Date expirationDate,int quantityInStock) {
         this.name = name;
         this.price = price;
         this.expirationDate = expirationDate;
-
         this.quantityInStock = quantityInStock;
+        this.restrictions = new ArrayList<String>();
     }
 
     public String getName() {
@@ -42,16 +45,24 @@ public class Bakery {
         this.expirationDate = expirationDate;
     }
 
-    public String[] getRestriction() {
-        return restriction;
+//    public String[] getRestriction() {
+//        return restriction;
+//    }
+
+//    public void setRestriction(String[] restriction) {
+//        for (int i = 0; i <restriction.length ; i++) {
+//
+//
+//        this.restriction = restriction;
+//    }}
+
+    public ArrayList<String> getRestrictions() {
+        return restrictions;
     }
 
-    public void setRestriction(String[] restriction) {
-        for (int i = 0; i <restriction.length ; i++) {
-
-
-        this.restriction = restriction;
-    }}
+    public void setRestrictions(String restr) {
+        restrictions.add(restr);
+    }
 
     public int getQuantityInStock() {
         return quantityInStock;
@@ -67,7 +78,7 @@ public class Bakery {
                 name + '\'' +
                 ", price=" + price +
                 ", expirationDate=" + expirationDate +
-                ", restriction=" + Arrays.toString(restriction) +
+                ", restriction=" + restrictions +
                 ", quantityInStock=" + quantityInStock;
     }
 }

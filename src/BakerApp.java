@@ -22,14 +22,15 @@ public class BakerApp {
         bakeries.add(product2);
         bakeries.add(product3);
         bakeries.add(product4);
-        //String[] restriction = {"No peanut", "No gluten", "No soy", "No dairy"};
-        String[] restriction = {"peanut", "gluten", "soy", "dairy"};
-
-        //product1.setRestriction(Dietrestriction);
-       // product1.setRestriction(restriction);
-        product2.setRestriction(restriction);
-        product3.setRestriction(restriction);
-        product4.setRestriction(restriction);
+        product1.setRestrictions("peanuts");
+        // product1.setRestriction(restriction);
+        product2.setRestrictions("dairy");
+        product2.setRestrictions("soy");
+        product3.setRestrictions("soy");
+        product3.setRestrictions("dairy");
+        product3.setRestrictions("peanuts");
+        product3.setRestrictions("gluten");
+        product4.setRestrictions("none");
         System.out.println(bakeries.get(0));
 
         System.out.println("Welcome to the Tmc's Better Bakery App! ");
@@ -44,25 +45,52 @@ public class BakerApp {
                 System.out.println(product + " ");
             }
         } else {
-            System.out.println("These are products free of "+ input);
-            for (int i = 0; i < bakeries.size(); i++) {
-                String[] restr = bakeries.get(i).getRestriction();
-                if(restrictionChecker(restr, input)){
-                    System.out.println(bakeries.get(i));
+            System.out.println("These are products free of " + input);
+            for (Bakery product : bakeries) {
+                if (!product.restrictions.contains(input)) {
+                    System.out.println(product);
                 }
-
+//            for (int i = 0; i < bakeries.size(); i++) {
+//                String[] restr = bakeries.get(i).getRestrictions();
+//                if(restrictionChecker(restr, input)){
+//                    System.out.println(bakeries.get(i));
+//                }
+//            }
             }
-
-
         }
     }
-
-    public static boolean restrictionChecker(String[] arr, String input) {
-        for (int i = 0; i < arr.length; i++) {
-            if (input.equalsIgnoreCase(arr[i]))
-                return false;
-        }
-        return true;
-    }
-
 }
+
+//    public static boolean restrictionChecker(String[] arr, String input) {
+//        for (int i = 0; i < arr.length; i++) {
+//            if (input.equalsIgnoreCase(arr[i]))
+//                return false;
+//        }
+//        return true;
+//    }
+//
+//    private HashMap<String, ArrayList<String>> restrictions = new HashMap<>();
+//
+//    BananaBread
+//        price = 5.99;
+//        qtyInStock = 13
+//        restrictions = {"soy", "dairy"};
+//
+//    CinnamonBread
+//        price = 5.99;
+//        qtyInStock = 13
+//        restrictions = {"dairy"};
+//
+//    ChocolateChipCookie
+//        price = 5.99;
+//        qtyInStock = 13
+//        restrictions = {"cookie"};
+//    Brownie
+//        price = 5.99;
+//        qtyInStock = 13
+//        restrictions = {"none"};
+//
+//    for (ArrayList product : bakeries) {
+//        if (!product.contains("peanut")) {
+//            System.out.println(product);
+//        }
