@@ -1,6 +1,4 @@
-import javax.lang.model.util.Types;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 
 class Bakery {
@@ -9,7 +7,6 @@ class Bakery {
     private String name;
     private double price;
     java.util.Date expirationDate;
-//    private String []restriction;
     public ArrayList<String> restrictions;
     private int quantityInStock;
 
@@ -45,20 +42,6 @@ class Bakery {
         this.expirationDate = expirationDate;
     }
 
-//    public String[] getRestriction() {
-//        return restriction;
-//    }
-
-//    public void setRestriction(String[] restriction) {
-//        for (int i = 0; i <restriction.length ; i++) {
-//
-//
-//        this.restriction = restriction;
-//    }}
-
-    public ArrayList<String> getRestrictions() {
-        return restrictions;
-    }
 
     public void setRestrictions(String restr) {
         restrictions.add(restr);
